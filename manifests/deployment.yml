@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: tloyazurevotingappredis 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tloyazurevotingappredis
+  template:
+    metadata:
+      labels:
+        app: tloyazurevotingappredis 
+    spec:
+      containers:
+        - name: tloyazurevotingappredis 
+          image: readinessregistry.azurecr.io/tloyazurevotingappredis
+          ports:
+          - containerPort: 80
